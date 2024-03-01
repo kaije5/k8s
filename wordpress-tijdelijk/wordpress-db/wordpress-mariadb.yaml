@@ -9,7 +9,7 @@ spec:
 
   username: mariadb
   passwordSecretKeyRef:
-    name: mariadb
+    name: wordpress-mariadb-secret
     key: password
   database: tijdelijk5
 
