@@ -1,17 +1,17 @@
 apiVersion: mariadb.mmontes.io/v1alpha1
 kind: MariaDB
 metadata:
-  name: mariadb-db-1
+  name: wordpress-mariadb
 spec:
   rootPasswordSecretKeyRef:
-    name: mariadb
+    name: wordpress-mariadb-secret
     key: root-password
 
   username: mariadb
   passwordSecretKeyRef:
     name: mariadb
     key: password
-  database: mariadb
+  database: tijdelijk5
 
   image: mariadb:11.0.3
   imagePullPolicy: IfNotPresent
@@ -21,15 +21,15 @@ spec:
   volumeClaimTemplate:
     resources:
       requests:
-        storage: 1Gi
+        storage: 10Gi
     accessModes:
       - ReadWriteOnce
   volumes:
-    - name: mariabackup
+    - name: wordpress-mariadb-backup
       persistentVolumeClaim:
-        claimName: mariabackup
+        claimName: wordpress-mariadb-backup
   volumeMounts:
-    - name: mariabackup
+    - name: wordpress-mariadb-backup
       mountPath: /var/mariadb/backup/
 
   connection:
