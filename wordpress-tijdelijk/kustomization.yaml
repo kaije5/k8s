@@ -1,0 +1,8 @@
+secretGenerator:
+  - name: mysql-pass
+    namespace: tijdelijk5
+    literals:
+      - password=Kaije2001!
+resources:
+  - wordpress-deployment.yaml
+  - wordpress-ingress.yaml
