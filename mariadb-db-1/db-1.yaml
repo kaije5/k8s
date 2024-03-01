@@ -9,13 +9,6 @@ spec:
         storage: 10Gi
     accessModes:
       - ReadWriteOnce
-  volumes:
-    - name: mariabackup
-      persistentVolumeClaim:
-        claimName: mariabackup
-  volumeMounts:
-    - name: mariabackup
-      mountPath: /var/mariadb/backup/
 
   replicas: 3
 
